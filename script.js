@@ -1,11 +1,16 @@
+function checkNumber(num) {
+  return num == 0 ? false : true;
+}
+
 const weightInput = document.getElementById("weight");
 const heightInput = document.getElementById("height");
 function checkBmi() {
   weight = weightInput.value;
   height = heightInput.value;
-  const bmi = (weight / Math.pow(height / 100, 2)).toFixed(1);
-  let status;
-  if (weight & (height != null)) {
+  if (checkNumber(weight) && checkNumber(height)) {
+    const bmi = (weight / Math.pow(height / 100, 2)).toFixed(1);
+    let status;
+
     if (bmi < 18.5) {
       status = "Underweight";
     } else if (bmi >= 18.5 && bmi < 24.9) {
@@ -22,7 +27,5 @@ function checkBmi() {
       "</b> which means You are <b>" +
       status +
       "</b>";
-  } else {
-    alert("Inputan Tidak Boleh Kosong!");
   }
 }
